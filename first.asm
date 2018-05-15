@@ -15,6 +15,7 @@ segment .data
 ; These labels refer to strings used for output
 ;
 prompt1 db "Enter a number: ", 0
+prompt2 db "Enter another number: ", 0
 ;
 ; uninitialized data is put in the .bss segment
 ;
@@ -23,6 +24,7 @@ segment .bss
 ; these labels refer to double words used to store the inputs
 ;
 input1 resd 1
+input2 resd 1
 ;
 ; code is put in the .text segment
 ;
@@ -37,6 +39,12 @@ asm_main:
 
     call read_int
     mov [input1], eax
+
+    mov eax, prompt2 ; print out prompt
+    call print_string
+
+    call read_int
+    mov [input2], eax
 
     popa
     mov eax, 0
