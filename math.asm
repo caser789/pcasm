@@ -4,6 +4,10 @@ segment .data
 prompt db "Enter a number: ", 0
 square_msg db "Square of input is ", 0
 cube_msg db "Cube of input is ", 0
+cube25_msg db "cube of input times 25 is ", 0
+quot_msg db "Quotient of cube/100 is ", 0
+rem_msg db "Remainder of cube/100 is ", 0
+neg_msg db "The negation of the remainder is ", 0
 
 segment .bss
 input resd 1
@@ -42,6 +46,25 @@ asm_main:
     mov eax, cube25_msg
     call print_string
     mov eax, ecx
+    call print_int
+    call print_nl
+
+    mov eax, ebx
+    cdq
+    mov ecx, 100
+    idiv ecx
+    mov ecx, eax
+    mov eax, quot_msg
+    call print_string
+
+    mov eax, ecx
+    call print_int
+    call print_nl
+
+    mov eax, rem_msg
+    call print_string
+
+    mov eax, edx
     call print_int
     call print_nl
 
