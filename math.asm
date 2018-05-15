@@ -25,6 +25,9 @@ asm_main:
     mov ebx, eax
     mov eax, square_msg
     call print_string
+    mov eax, ebx
+    call print_int
+    call print_nl
 
     popa
     mov eax, 0
