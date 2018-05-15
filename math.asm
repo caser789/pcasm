@@ -3,6 +3,7 @@
 segment .data
 prompt db "Enter a number: ", 0
 square_msg db "Square of input is ", 0
+cube_msg db "Cube of input is ", 0
 
 segment .bss
 input resd 1
@@ -24,6 +25,14 @@ asm_main:
     imul eax
     mov ebx, eax
     mov eax, square_msg
+    call print_string
+    mov eax, ebx
+    call print_int
+    call print_nl
+
+    mov ebx, eax
+    imul ebx, [input]
+    mov eax, cube_msg
     call print_string
     mov eax, ebx
     call print_int
