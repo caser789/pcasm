@@ -16,6 +16,7 @@ segment .data
 ;
 prompt1 db "Enter a number: ", 0
 prompt2 db "Enter another number: ", 0
+outmsg1 db "You entered ", 0
 ;
 ; uninitialized data is put in the .bss segment
 ;
@@ -45,6 +46,13 @@ asm_main:
 
     call read_int
     mov [input2], eax
+
+    mov eax, [input1]
+    add eax, [input2]
+    mov ebx, eax
+
+    dump_regs 1
+    dump_mem 2, outmsg1, 1
 
     popa
     mov eax, 0
