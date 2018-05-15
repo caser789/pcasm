@@ -4,7 +4,7 @@ segment .data
 prompt db "Enter a number: ", 0
 
 segment .bss
-input reds 1
+input resd 1
 
 
 segment .text
