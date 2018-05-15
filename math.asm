@@ -38,6 +38,13 @@ asm_main:
     call print_int
     call print_nl
 
+    imul ecx, ebx, 25
+    mov eax, cube25_msg
+    call print_string
+    mov eax, ecx
+    call print_int
+    call print_nl
+
     popa
     mov eax, 0
     leave
