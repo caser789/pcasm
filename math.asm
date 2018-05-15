@@ -68,6 +68,14 @@ asm_main:
     call print_int
     call print_nl
 
+    neg edx
+    mov eax, neg_msg
+    call print_string
+
+    mov eax, edx
+    call print_int
+    call print_nl
+
     popa
     mov eax, 0
     leave
